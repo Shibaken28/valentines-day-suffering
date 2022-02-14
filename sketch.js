@@ -3,7 +3,7 @@
 let red = [0x61,70,240,247,0x91,0x31];
 let green = [0x2b,150,240,173,0x4b,0x1b];
 let blue = [0x20,70,180,195,0x40,0x10];
-let version="ver. 0.8.6";
+let version="ver. 0.8.7";
 let beep;
 
 
@@ -269,7 +269,7 @@ class Board{
       }
     }
     
-    if(clear)alert("クリアおめでとう！");
+    if(clear)alert("おめでとう！\nあなたはチョコレートパズルをクリアしました！");
     
   }
   rotate(d){
