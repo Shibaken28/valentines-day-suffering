@@ -301,6 +301,7 @@ function setup() {
   problem = decode(dummy);
   
   board = new Board(10,6,problem,12,40);
+  problem = decode(problem);
   //board.print();
 }
 
