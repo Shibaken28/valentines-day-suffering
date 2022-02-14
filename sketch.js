@@ -298,10 +298,9 @@ function setup() {
     [61,57,56,59,58,52]
   ]
   
-  problem = decode(dummy);
+  let problem = decode(dummy);
   
   board = new Board(10,6,problem,12,40);
-  problem = decode(problem);
   //board.print();
 }
 
