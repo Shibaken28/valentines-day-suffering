@@ -8,8 +8,14 @@
   <body>
     <noscript>JavaScriptをenableにしてください</noscript>
     <script src="sketch.js"></script>
+    <script>
+       window.addEventListener('touchmove', event => {
+        event.preventDefault();
+    }, true);
+    </script>
   </body>
 </html>
+
 
 <!DOCTYPE html>
 <html lang="en">
