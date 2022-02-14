@@ -1,4 +1,8 @@
-/*座標*/
+let red = [0x61,70,240,247,0x91,0x31];
+let green = [0x2b,150,240,173,0x4b,0x1b];
+let blue = [0x20,70,180,195,0x40,0x10];
+
+      /*座標*/
 class pos{
   constructor(y,x){
     this.y=y;
@@ -77,38 +81,14 @@ class Choco{
       let edge1=6;
       let edge2=8;
       let edge3=14;
-      let r,g,b;
-      if(element.col==0){
-        r=0x61;
-        g=0x2b;
-        b=0x20;
-      }else if(element.col==1){
-        r=70;
-        g=150;
-        b=70;
-      }else if(element.col==2){
-        r=240;
-        g=240;
-        b=180;
-      }else if(element.col==3){
-        r=247;
-        g=173;
-        b=195;
-      }else if(element.col==4){
-        r=0x91;
-        g=0x4b;
-        b=0x40;
-      }else if(element.col==5){
-        r=0x31;
-        g=0x1b;
-        b=0x10;
-      }
+      let r=red[element.col];
+      let g=green[element.col];
+      let b=blue[element.col];
+
         
       noStroke();
       
       let position=[new pos(by,bx),new pos(by,ex),new pos(ey,ex),new pos(ey,bx)];
-      //let colors=["#612b20","#250f08","#321213","#9d5d41"];
-      //let colorsIn=["#481e0d","#bda78e","#5d2e18","#280909"];
       let colors=[1,0.4,0.7,1.5,1.1,0.7,1.6,0.9,0.5,1.1];
       for(let i=0;i<4;i++){
         fill(r*colors[i],g*colors[i],b*colors[i]);
@@ -125,6 +105,7 @@ class Choco{
       rect(bx+edge3,by+edge3,size-edge3*2,size-edge3*2);
     })
   }
+
   isTouched(y,x,size){
     let touched = false;
     for(let i=0;i<this.bar.length;i++){
@@ -160,7 +141,7 @@ class Board{
     this.isPut = new Array(this.h);
     for(let i=0;i<num;i++){
       this.parts[i]=new Choco(i%6);
-      this.position[i] = new pos(random(width-200),random(height-200));
+      this.position[i] = new pos(random(height-500)+250,random(width-500)+300);
       this.lay[i] = i;
     }
     for(let r=0;r<h;r++){
@@ -279,15 +260,20 @@ class Board{
 }
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(windowWidth, windowHeight);
   problem=[
-    [0,5,5,5,2],
-    [0,0,1,5,2],
-    [1,1,1,2,2],
-    [3,3,3,2,2],
-    [3,3,4,4,4]
+    [00,07,07,08,08,08],
+    [00,07,07,07,08,08],
+    [00,00,00,09,08,09],
+    [06,06,06,09,09,09],
+    [10,10,05,05,11,11],
+    [10,05,05,11,11,11],
+    [10,05,05,11,03,03],
+    [10,01,01,04,04,03],
+    [01,01,04,04,02,03],
+    [01,02,02,02,02,03],
   ];
-  board = new Board(5,5,problem,6,64);
+  board = new Board(10,6,problem,12,50);
   //board.print();
 }
 
@@ -339,4 +325,8 @@ function keyTyped() {
   }
 }
 
+
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
+}
 
