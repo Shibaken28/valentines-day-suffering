@@ -84,8 +84,6 @@ class Choco{
       let r=red[element.col];
       let g=green[element.col];
       let b=blue[element.col];
-
-        
       noStroke();
       
       let position=[new pos(by,bx),new pos(by,ex),new pos(ey,ex),new pos(ey,bx)];
