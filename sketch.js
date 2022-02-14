@@ -4,6 +4,13 @@ let red = [0x61,70,240,247,0x91,0x31];
 let green = [0x2b,150,240,173,0x4b,0x1b];
 let blue = [0x20,70,180,195,0x40,0x10];
 let version="ver. 0.8.3";
+let beep;
+
+
+function preload() {
+  song = loadSound('beep.mp3');
+}
+
 
       /*座標*/
 class pos{
@@ -142,7 +149,7 @@ class Board{
     this.isPut = new Array(this.h);
     for(let i=0;i<num;i++){
       this.parts[i]=new Choco(i%6);
-      this.position[i] = new pos(random(height-500)+250,random(width-500)+300);
+      this.position[i] = new pos(random(height-300)+150,random(width-300)+150);
       this.lay[i] = i;
     }
     for(let r=0;r<h;r++){
@@ -219,6 +226,7 @@ class Board{
   }
   
   released(){
+    song.play();
     if(!this.isHaving())return;
     let nx=this.position[this.having].x;
     let ny=this.position[this.having].y;
@@ -329,14 +337,6 @@ function mousePressed(){
 
 function mouseReleased(){
   board.released();
-}
-
-function keyTyped() {
-  if (key === 'a') {
-    board.rotate(1);
-  } else if (key === 'd') {
-    board.rotate(-1);
-  }
 }
 
 
