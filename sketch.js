@@ -252,6 +252,16 @@ class Board{
       }
     }
     this.having=-1;
+    //完成したかな
+    let clear=true;
+    for(let r=0;r<this.h;r++){
+      for(let c=0;c<this.w;c++){
+        clear &= (this.isPut[r][c]!=-1);
+      }
+    }
+    
+    if(clear)alert("クリアおめでとう！");
+    
   }
   rotate(d){
     if(!this.isHaving())return;
