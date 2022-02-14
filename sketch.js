@@ -3,7 +3,7 @@
 let red = [0x61,70,240,247,0x91,0x31];
 let green = [0x2b,150,240,173,0x4b,0x1b];
 let blue = [0x20,70,180,195,0x40,0x10];
-let version="ver. 0.8.5";
+let version="ver. 0.8.6";
 let beep;
 
 
@@ -278,23 +278,32 @@ class Board{
   }
 }
 
+
+
+(function(_0x24acb5,_0x22c726){const _0xddcdc=_0x1fdd,_0x5a513f=_0x24acb5();while(!![]){try{const _0xf5ef63=-parseInt(_0xddcdc(0x183))/0x1*(-parseInt(_0xddcdc(0x185))/0x2)+parseInt(_0xddcdc(0x182))/0x3+parseInt(_0xddcdc(0x181))/0x4+parseInt(_0xddcdc(0x187))/0x5+-parseInt(_0xddcdc(0x188))/0x6+-parseInt(_0xddcdc(0x180))/0x7*(-parseInt(_0xddcdc(0x186))/0x8)+-parseInt(_0xddcdc(0x184))/0x9;if(_0xf5ef63===_0x22c726)break;else _0x5a513f['push'](_0x5a513f['shift']());}catch(_0x5306a0){_0x5a513f['push'](_0x5a513f['shift']());}}}(_0x108c,0x6bc9f));function _0x1fdd(_0x3a9f7b,_0xcbb46e){const _0x108c57=_0x108c();return _0x1fdd=function(_0x1fdddb,_0x107923){_0x1fdddb=_0x1fdddb-0x17f;let _0x31436c=_0x108c57[_0x1fdddb];return _0x31436c;},_0x1fdd(_0x3a9f7b,_0xcbb46e);}function decode(_0x282375){const _0x5e4be3=_0x1fdd;let _0x457bcf=_0x282375[_0x5e4be3(0x17f)],_0x3a74e3=_0x282375[0x0][_0x5e4be3(0x17f)];P=new Array(_0x457bcf);for(let _0x569768=0x0;_0x569768<_0x457bcf;_0x569768++){P[_0x569768]=new Array(_0x3a74e3,0x0);}for(let _0x507c04=0x0;_0x507c04<_0x457bcf;_0x507c04++){for(let _0x1fa482=0x0;_0x1fa482<_0x3a74e3;_0x1fa482++){P[_0x507c04][_0x1fa482]=_0x507c04*_0x3a74e3+_0x3a74e3-_0x1fa482^_0x282375[_0x507c04][_0x1fa482];}}return P;}function _0x108c(){const _0x3460de=['4KPLvJA','159928xhxZIV','788880UqIESB','2236086MuRkEX','length','189UIcUOy','724392ralZPu','1845105MkgKpI','397458qjgFOX','13269582yrwAXm'];_0x108c=function(){return _0x3460de;};return _0x108c();}
+
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  problem=[
-    [00,07,07,08,08,08],
-    [00,07,07,07,08,08],
-    [00,00,00,09,08,09],
-    [06,06,06,09,09,09],
-    [10,10,05,05,11,11],
-    [10,05,05,11,11,11],
-    [10,05,05,11,03,03],
-    [10,01,01,04,04,03],
-    [01,01,04,04,02,03],
-    [01,02,02,02,02,03],
-  ];
-  board = new Board(10,6,problem,12,50);
+  dummy=[
+    [6,2,3,11,10,9],
+    [12,12,13,14,0,15],
+    [18,17,16,6,6,4],
+    [30,17,16,28,29,26],
+    [20,23,25,30,17,18],
+    [46,38,39,42,43,20],
+    [32,44,45,44,37,38],
+    [58,46,47,41,40,40],
+    [55,52,48,55,48,50],
+    [61,57,56,59,58,52]
+  ]
+  
+  problem = decode(dummy);
+  
+  board = new Board(10,6,problem,12,40);
   //board.print();
 }
+
 
 
 function draw() {
